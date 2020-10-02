@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "masiv-app"
+    }
+  },
+  "defaultProject": "masiv-app",
+  "cli": {
+    "analytics": false
+  }
 }

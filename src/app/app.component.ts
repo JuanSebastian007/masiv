@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
    * @param calification Comic calification
    * @param comic Comic
    */
-  qualify(calification: string, comic: Comic) {
+  qualify(calification: string, comic: Comic): void {
     comic.calification = parseInt(calification);
     this.ratedComic = true;
     this.comicsCalifications.push(comic);
@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
    * Gets a random comic number
    * @param maxNumber Comics number available
    */
-  getComicNumber(maxNumber: number) {
+  getComicNumber(maxNumber: number): number {
     let comicNumber = Math.floor(Math.random() * maxNumber);
     do {
       comicNumber = Math.floor(Math.random() * maxNumber);

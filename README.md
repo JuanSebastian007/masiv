@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.4.
 
+## Important
+Before running the application for the first time, make sure that the node_modules packages have been installed
+
 ## Install package
 
 Run `npm install` for install package and generate node_modules.

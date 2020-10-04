@@ -1,1 +1,85 @@
-<router-outlet></router-outlet>
+<div class="container-fluid" *ngIf="comic">
+  <div class="row justify-content-center">
+    <div class="col-auto">
+      <h3>{{ comic.title }}</h3>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-auto">
+      <img [src]="comic.img" class="img-fluid" />
+    </div>
+  </div>
+  <div *ngIf="!ratedComic">
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <p class="clasfication-title">
+          Did you have fun reading this comic? Give us your rating!
+        </p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <p class="clasification">
+          <input
+            id="radio1"
+            type="radio"
+            name="starts"
+            value="5"
+            (click)="qualify($event.target.value, comic)"
+          />
+          <label for="radio1">★</label>
+          <input
+            id="radio2"
+            type="radio"
+            name="starts"
+            value="4"
+            (click)="qualify($event.target.value, comic)"
+          />
+          <label for="radio2">★</label>
+          <input
+            id="radio3"
+            type="radio"
+            name="starts"
+            value="3"
+            (click)="qualify($event.target.value, comic)"
+          />
+          <label for="radio3">★</label>
+          <input
+            id="radio4"
+            type="radio"
+            name="starts"
+            value="2"
+            (click)="qualify($event.target.value, comic)"
+          />
+          <label for="radio4">★</label>
+          <input
+            id="radio5"
+            type="radio"
+            name="starts"
+            value="1"
+            (click)="qualify($event.target.value, comic)"
+          />
+          <label for="radio5">★</label>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="ratedComic">
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <p class="clasfication-title">Thank you for your rating</p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="getData(maxNumber)"
+        >
+          Read another comic
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

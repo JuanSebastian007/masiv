@@ -6,20 +6,6 @@ const routes: Routes = [
   {
     path: '',
     component: AppComponent,
-    children: [
-      {
-        path: '',
-        redirectTo: '/comic-qualifier',
-        pathMatch: 'full',
-      },
-      {
-        path: 'comic-qualifier',
-        loadChildren: () =>
-          import('./comics-qualifier/comics-qualifier.module').then(
-            (m) => m.ComicsQualifierModule
-          ),
-      },
-    ],
   },
 ];
 

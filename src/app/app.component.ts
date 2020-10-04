@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Comic } from './core/models/comic.interface';
 import { ComicService } from './core/services/comic/comic.service';
@@ -8,7 +8,7 @@ import { ComicService } from './core/services/comic/comic.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   maxNumber: number; //Comics number available
   comicSubscription: Subscription; //Subscription to the comic observable.
   comic: Comic; //Comic information
@@ -25,6 +25,12 @@ export class AppComponent implements OnInit {
         return data;
       });
     this.getData(this.maxNumber);
+  }
+
+  ngOnDestroy(): void {
+    if (this.comicSubscription) {
+      this.comicSubscription.unsubscribe();
+    }
   }
 
   /**

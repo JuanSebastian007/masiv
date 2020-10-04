@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   ratedComic: boolean = false; //Indicates if the comic has been rated
   comicsCalifications: Comic[] = []; //Comics rated
   comicsCalificationsNumber: number[] = []; //Comics number rated
+  spinner: boolean; //Charger while information is obtained
   constructor(private comicSerivce: ComicService) {}
   async ngOnInit() {
     // Get the maximum amount of comics
@@ -31,11 +32,13 @@ export class AppComponent implements OnInit {
    * @param maxNumber Comics number available
    */
   getData(maxNumber: number): void {
+    this.spinner = true;
     let comicNumber = this.getComicNumber(maxNumber);
     this.comicSubscription = this.comicSerivce
       .getData(comicNumber)
       .subscribe((data: Comic) => {
         this.comic = data;
+        this.spinner = false;
         this.ratedComic = false;
       });
   }

@@ -1,4 +1,8 @@
-<div class="container-fluid" *ngIf="comic">
+<div class="spinner" *ngIf="spinner">
+  <div class="spinner-border" role="status"></div>
+</div>
+
+<div class="container-fluid" *ngIf="comic && !spinner">
   <div class="row justify-content-center">
     <div class="col-auto">
       <h3>{{ comic.title }}</h3>
